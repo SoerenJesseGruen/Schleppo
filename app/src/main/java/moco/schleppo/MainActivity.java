@@ -14,6 +14,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.parse.Parse;
+import com.parse.ui.ParseLoginBuilder;
+
 import moco.schleppo.fragments.LoginFragment;
 import moco.schleppo.fragments.LogoutFragment;
 import moco.schleppo.fragments.MainFragment;
@@ -31,6 +34,8 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -42,6 +47,19 @@ public class MainActivity extends AppCompatActivity
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
+
+        final String YOUR_APPLICATION_ID = "Parse_DB_Team_2";
+        final String YOUR_CLIENT_KEY = "team2";
+        Parse.initialize(new Parse.Configuration.Builder(getApplicationContext())
+                .applicationId(YOUR_APPLICATION_ID)
+                .clientKey(YOUR_CLIENT_KEY)
+                .server("https://team2.parse.dock.moxd.io/api/")   // '/' important after 'api'
+                .build());
+
+
+        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+        startActivityForResult(builder.build(), 0);
+
     }
 
     @Override
