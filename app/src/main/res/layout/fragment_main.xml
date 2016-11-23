@@ -1,10 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_horizontal_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_content_margin"
+    tools:context="fragments.MainFragment"
+    android:orientation="vertical">
 
-    <TextView
-        android:text="Main"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2" />
-</FrameLayout>
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            app:srcCompat="@mipmap/ic_launcher"
+            android:id="@+id/imageButton_Profile"
+            android:contentDescription="Profil" />
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            app:srcCompat="@android:drawable/ic_dialog_map"
+            android:id="@+id/imageButton_Map"
+            android:contentDescription="Karte" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1">
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            app:srcCompat="@android:drawable/ic_dialog_alert"
+            android:id="@+id/imageButton_Warning"
+            android:contentDescription="Warnung" />
+
+        <ImageButton
+            android:layout_width="175dp"
+            android:layout_height="175dp"
+            app:srcCompat="@android:drawable/ic_dialog_email"
+            android:id="@+id/imageButton_Messages"
+            android:contentDescription="Nachrichten" />
+
+    </LinearLayout>
+</LinearLayout>
