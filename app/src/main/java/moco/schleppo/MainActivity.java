@@ -1,6 +1,8 @@
 package moco.schleppo;
 
+import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         logoutView = navigationView.getMenu().findItem(R.id.nav_logout);
 
         FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
+        fm.beginTransaction().replace(R.id.content_frame, new MainFragment(), "CURRENT_FRAGMENT").commit();
 
         final String YOUR_APPLICATION_ID = "Parse_DB_Team_2";
         final String YOUR_CLIENT_KEY = "team2";
@@ -74,6 +76,9 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
+
+        FragmentManager fm = getFragmentManager();
+        fm.popBackStack();
     }
 
     @Override
@@ -102,28 +107,33 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
 
-        FragmentManager fm = getFragmentManager();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
 
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         if (id == R.id.nav_home) {
-            fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
+            ft.replace(R.id.content_frame, new MainFragment(), "home");
+            ft.addToBackStack("home");
         } else if (id == R.id.nav_map) {
-
+            //TODO: Map-Activity starten
         } else if (id == R.id.nav_profile) {
-            fm.beginTransaction().replace(R.id.content_frame, new ProfilFragment()).commit();
+            ft.replace(R.id.content_frame, new ProfilFragment(), "profile");
+            ft.addToBackStack("profile");
         } else if (id == R.id.nav_settings) {
             //TODO: Settings-Activity starten
         } else if (id == R.id.nav_login) {
-            fm.beginTransaction().replace(R.id.content_frame, new LoginFragment()).commit();
+            ft.replace(R.id.content_frame, new LoginFragment());
         } else if (id == R.id.nav_logout) {
-            fm.beginTransaction().replace(R.id.content_frame, new LogoutFragment()).commit();
+            ft.replace(R.id.content_frame, new LogoutFragment());
         } else if (id == R.id.nav_messages) {
-            fm.beginTransaction().replace(R.id.content_frame, new MessagesFragment()).commit();
+            ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
+            ft.addToBackStack("messages");
         } else if (id == R.id.nav_warn_driver) {
-            fm.beginTransaction().replace(R.id.content_frame, new WarnDriverFragment()).commit();
+            ft.replace(R.id.content_frame, new WarnDriverFragment(), "warnDriver");
+            ft.addToBackStack("warnDriver");
         }
+        ft.commit();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

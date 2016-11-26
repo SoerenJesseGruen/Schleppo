@@ -2,6 +2,7 @@ package moco.schleppo.fragments;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,26 +33,34 @@ public class MainFragment extends Fragment {
 
         btnProfile.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_frame, new ProfilFragment()).commit();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content_frame, new ProfilFragment(), "profile");
+                ft.addToBackStack("profile");
+                ft.commit();
             }
         });
         btnMap.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content_frame, new MainFragment(), "home");
+                ft.addToBackStack("home");
+                ft.commit();
             }
         });
         btnMessages.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_frame, new MessagesFragment()).commit();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
+                ft.addToBackStack("messages");
+                ft.commit();
             }
         });
         btnWarnDriver.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                FragmentManager fm = getFragmentManager();
-                fm.beginTransaction().replace(R.id.content_frame, new WarnDriverFragment()).commit();
+                FragmentTransaction ft = getFragmentManager().beginTransaction();
+                ft.replace(R.id.content_frame, new WarnDriverFragment(), "warnDriver");
+                ft.addToBackStack("warnDriver");
+                ft.commit();
             }
         });
 
