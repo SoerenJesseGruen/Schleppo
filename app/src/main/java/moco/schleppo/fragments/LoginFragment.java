@@ -6,6 +6,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.parse.ui.ParseLoginBuilder;
+
+import moco.schleppo.MainActivity;
 import moco.schleppo.R;
 
 /**
@@ -13,9 +16,22 @@ import moco.schleppo.R;
  */
 
 public class LoginFragment extends Fragment {
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_login, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        boolean loginSucceeded = true;
+
+        ParseLoginBuilder builder = new ParseLoginBuilder(getActivity());
+        startActivityForResult(builder.build(), 0);
+
+        //TODO: Abfragen ob Login erfolgreich war und "loginSucceeded" entspr. setzen
+
+        if(loginSucceeded) {
+            MainActivity.loginView.setVisible(false);
+            MainActivity.logoutView.setVisible(true);
+        }
 
         return rootView;
     }

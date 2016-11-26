@@ -27,14 +27,15 @@ import moco.schleppo.fragments.WarnDriverFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    static public MenuItem loginView;
+    static public MenuItem logoutView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -44,6 +45,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        loginView = navigationView.getMenu().findItem(R.id.nav_login);
+        logoutView = navigationView.getMenu().findItem(R.id.nav_logout);
 
         FragmentManager fm = getFragmentManager();
         fm.beginTransaction().replace(R.id.content_frame, new MainFragment()).commit();
@@ -57,8 +61,8 @@ public class MainActivity extends AppCompatActivity
                 .build());
 
 
-        ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-        startActivityForResult(builder.build(), 0);
+        //ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
+        //startActivityForResult(builder.build(), 0);
 
     }
 
@@ -110,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_profile) {
             fm.beginTransaction().replace(R.id.content_frame, new ProfilFragment()).commit();
         } else if (id == R.id.nav_settings) {
-
+            //TODO: Settings-Activity starten
         } else if (id == R.id.nav_login) {
             fm.beginTransaction().replace(R.id.content_frame, new LoginFragment()).commit();
         } else if (id == R.id.nav_logout) {
