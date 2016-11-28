@@ -4,10 +4,152 @@
     android:layout_height="match_parent"
     tools:context="moco.schleppo.fragments.ProfilFragment">
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"
-        android:id="@+id/textViewProfil" />
+        android:layout_below="@+id/app_bar">
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:ems="10"
+            android:id="@+id/tfName"
+            android:layout_alignBaseline="@+id/tvName"
+            android:layout_alignBottom="@+id/tvName"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Username"
+            android:ems="10"
+            android:id="@+id/tfUsername"
+            android:layout_alignBaseline="@+id/tvUsername"
+            android:layout_alignBottom="@+id/tvUsername"
+            android:layout_alignLeft="@+id/tfVorname"
+            android:layout_alignStart="@+id/tfVorname" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="E-Mail"
+            android:ems="10"
+            android:id="@+id/tfEmail"
+            android:layout_alignBaseline="@+id/tvEmail"
+            android:layout_alignBottom="@+id/tvEmail"
+            android:layout_alignLeft="@+id/tfKennzeichen"
+            android:layout_alignStart="@+id/tfKennzeichen" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Kennzeichen"
+            android:ems="10"
+            android:id="@+id/tfKennzeichen"
+            android:layout_alignBaseline="@+id/tvKennzeichen"
+            android:layout_alignBottom="@+id/tvKennzeichen"
+            android:layout_alignLeft="@+id/tfUsername"
+            android:layout_alignStart="@+id/tfUsername" />
+
+        <TextView
+            android:text="Name:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="53dp"
+            android:id="@+id/tvName"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            android:text="Passwort zurücksetzen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/tvEmail"
+            android:layout_alignStart="@+id/tvEmail"
+            android:layout_marginBottom="26dp"
+            android:textSize="12sp"
+            android:id="@+id/btnPasswort" />
+
+        <Button
+            android:text="Speichern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/btnPasswort"
+            android:layout_alignRight="@+id/tfEmail"
+            android:layout_alignEnd="@+id/tfEmail"
+            android:layout_marginRight="32dp"
+            android:layout_marginEnd="32dp"
+            android:textSize="12sp"
+            android:enabled="true"
+            android:id="@+id/btnSpeichern" />
+
+        <TextView
+            android:text="Vorname:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvVorname"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_below="@+id/tfName"
+            android:layout_alignLeft="@+id/tvName"
+            android:layout_alignStart="@+id/tvName"
+            android:layout_marginTop="35dp" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:text="Vorname"
+            android:ems="10"
+            android:id="@+id/tfVorname"
+            android:layout_alignBaseline="@+id/tvVorname"
+            android:layout_alignBottom="@+id/tvVorname"
+            android:layout_alignLeft="@+id/tfName"
+            android:layout_alignStart="@+id/tfName" />
+
+        <TextView
+            android:text="Username:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvUsername"
+            android:layout_marginTop="35dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_below="@+id/tfVorname"
+            android:layout_alignLeft="@+id/tvVorname"
+            android:layout_alignStart="@+id/tvVorname" />
+
+        <TextView
+            android:text="Kennzeichen:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:id="@+id/tvKennzeichen"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_below="@+id/tfUsername"
+            android:layout_alignLeft="@+id/tvUsername"
+            android:layout_alignStart="@+id/tvUsername" />
+
+        <TextView
+            android:text="E-Mail:"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="35dp"
+            android:id="@+id/tvEmail"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:layout_below="@+id/tfKennzeichen"
+            android:layout_alignLeft="@+id/tvKennzeichen"
+            android:layout_alignStart="@+id/tvKennzeichen" />
+    </RelativeLayout>
 
 </FrameLayout>

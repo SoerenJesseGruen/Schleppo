@@ -1,12 +1,8 @@
 package moco.schleppo;
 
-import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -17,13 +13,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.parse.Parse;
-import com.parse.ui.ParseLoginBuilder;
 
-import moco.schleppo.fragments.LoginFragment;
-import moco.schleppo.fragments.LogoutFragment;
 import moco.schleppo.fragments.MainFragment;
 import moco.schleppo.fragments.MessagesFragment;
 import moco.schleppo.fragments.ProfilFragment;
+import moco.schleppo.fragments.UserManagement;
 import moco.schleppo.fragments.WarnDriverFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -32,6 +26,9 @@ public class MainActivity extends AppCompatActivity
     static public MenuItem loginView;
     static public MenuItem logoutView;
 
+    DrawerLayout drawer;
+    public static NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,20 +36,21 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         loginView = navigationView.getMenu().findItem(R.id.nav_login);
         logoutView = navigationView.getMenu().findItem(R.id.nav_logout);
 
-        FragmentManager fm = getFragmentManager();
-        fm.beginTransaction().replace(R.id.content_frame, new MainFragment(), "CURRENT_FRAGMENT").commit();
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, new MainFragment());
+        ft.commit();
 
         final String YOUR_APPLICATION_ID = "Parse_DB_Team_2";
         final String YOUR_CLIENT_KEY = "team2";
@@ -62,10 +60,7 @@ public class MainActivity extends AppCompatActivity
                 .server("https://team2.parse.dock.moxd.io/api/")   // '/' important after 'api'
                 .build());
 
-
-        //ParseLoginBuilder builder = new ParseLoginBuilder(MainActivity.this);
-        //startActivityForResult(builder.build(), 0);
-
+        UserManagement.checkUser(navigationView);
     }
 
     @Override
@@ -76,7 +71,6 @@ public class MainActivity extends AppCompatActivity
         } else {
             super.onBackPressed();
         }
-
         FragmentManager fm = getFragmentManager();
         fm.popBackStack();
     }
@@ -123,9 +117,13 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             //TODO: Settings-Activity starten
         } else if (id == R.id.nav_login) {
-            ft.replace(R.id.content_frame, new LoginFragment());
+            UserManagement.doLogin(this);
+            ft.replace(R.id.content_frame, new MainFragment(), "home");
+            ft.addToBackStack("home");
         } else if (id == R.id.nav_logout) {
-            ft.replace(R.id.content_frame, new LogoutFragment());
+            UserManagement.doLogout(this);
+            ft.replace(R.id.content_frame, new MainFragment(), "home");
+            ft.addToBackStack("home");
         } else if (id == R.id.nav_messages) {
             ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
             ft.addToBackStack("messages");
