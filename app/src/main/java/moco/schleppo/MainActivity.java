@@ -12,9 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.android.gms.maps.GoogleMap;
 import com.parse.Parse;
 
 import moco.schleppo.fragments.MainFragment;
+import moco.schleppo.fragments.MapsFragment;
 import moco.schleppo.fragments.MessagesFragment;
 import moco.schleppo.fragments.ProfilFragment;
 import moco.schleppo.fragments.UserManagement;
@@ -25,6 +27,7 @@ public class MainActivity extends AppCompatActivity
 
     static public MenuItem loginView;
     static public MenuItem logoutView;
+
 
     DrawerLayout drawer;
     public static NavigationView navigationView;
@@ -63,6 +66,7 @@ public class MainActivity extends AppCompatActivity
         UserManagement.checkUser(navigationView);
     }
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -74,6 +78,8 @@ public class MainActivity extends AppCompatActivity
         FragmentManager fm = getFragmentManager();
         fm.popBackStack();
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -110,7 +116,8 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_frame, new MainFragment(), "home");
             ft.addToBackStack("home");
         } else if (id == R.id.nav_map) {
-            //TODO: Map-Activity starten
+            ft.replace(R.id.content_frame, new MapsFragment(), "map");
+            ft.addToBackStack("map");
         } else if (id == R.id.nav_profile) {
             ft.replace(R.id.content_frame, new ProfilFragment(), "profile");
             ft.addToBackStack("profile");

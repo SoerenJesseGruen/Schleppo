@@ -43,8 +43,8 @@ public class MainFragment extends Fragment {
         btnMap.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.content_frame, new MainFragment(), "home");
-                ft.addToBackStack("home");
+                ft.replace(R.id.content_frame, new MapsFragment(), "map");
+                ft.addToBackStack("map");
                 ft.commit();
             }
         });

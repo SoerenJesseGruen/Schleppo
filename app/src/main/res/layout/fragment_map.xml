@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+<com.google.android.gms.maps.MapView android:id="@+id/map"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    xmlns:android="http://schemas.android.com/apk/res/android" />
+
+    <Button
+        android:text="Parkplatz markieren"
+        android:id="@+id/standort"
+        android:layout_gravity="left|bottom"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:paddingRight="10dp"
+        android:layout_height="50dp"
+        android:layout_width="150dp" />
+
+</FrameLayout>
+

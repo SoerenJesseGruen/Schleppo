@@ -9,4 +9,12 @@
 
     <string name="standard_userName_header">Schleppo</string>
     <string name="standard_licenseNumber_header">Sie sind nicht eingeloggt</string>
+
+
+
+    <string name="AZ">AZ</string>
+    <string name="Category">category</string>
+    <string name="NearBy">nearby</string>
+    <string name="Popular">popular</string>
+
 </resources>
