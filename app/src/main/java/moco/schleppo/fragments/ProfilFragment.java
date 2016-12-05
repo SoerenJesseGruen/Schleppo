@@ -1,5 +1,6 @@
 package moco.schleppo.fragments;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.parse.ParseUser;
 import com.parse.RequestPasswordResetCallback;
 import com.parse.ui.ParseLoginBuilder;
 
+import moco.schleppo.LoginActivity;
 import moco.schleppo.MainActivity;
 import moco.schleppo.R;
 
@@ -27,14 +29,16 @@ import moco.schleppo.R;
 public class ProfilFragment extends Fragment {
 
     Button btnEdit;
+    View rootView;
+    static  final int REQUEST_CODE = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_profil, container, false);
-
+        rootView = inflater.inflate(R.layout.fragment_profil, container, false);
         if(UserManagement.parseUser==null) {
-            UserManagement.doLogin(getActivity());
+            Intent intent = new Intent(getActivity(), UserManagement.class);
+            startActivityForResult(intent, REQUEST_CODE);
         } else {
             setTextFieldsAndListener(rootView);
         }
@@ -45,6 +49,10 @@ public class ProfilFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode==REQUEST_CODE) {
+            setTextFieldsAndListener(rootView);
+        }
     }
 
     private void setTextFieldsAndListener (View rootView) {
