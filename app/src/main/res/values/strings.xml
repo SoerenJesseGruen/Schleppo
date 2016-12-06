@@ -21,4 +21,13 @@
     <string name="standard_profile_email">E-Mail</string>
     <string name="standard_profile_username">Username</string>
     <string name="standard_profile_kennzeichen">Kennzeichen</string>
+
+    <string name="driver_warn">Warnung ausgeben</string>
+    <string name="driver_here_parking">Markieren</string>
+    <string name="warndialog">Warndialog</string>
+    <string name="ordnungsamt">Ordnungsamt</string>
+    <string name="abschleppdienst">Abschleppdienst</string>
+    <string name="abbrechen">Abbrechen</string>
+    <string name="senden">Senden</string>
+    <string name="navigation">Navigation</string>
 </resources>
