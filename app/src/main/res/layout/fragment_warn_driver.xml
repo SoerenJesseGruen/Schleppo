@@ -1,10 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+             xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="match_parent">
 
     <TextView
-        android:text="Fahrer warnen"
+        android:text="@string/kennzeichen"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textViewWarnDriver" />
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:textStyle="normal|bold"
+        android:textSize="24sp" tools:ignore="RtlHardcoded"
+        android:id="@+id/kennzeichen_Warndriver"/>
+    <EditText
+        android:layout_width="296dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:layout_marginTop="55dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/kennzeichenEingabe"
+        tools:ignore="RtlHardcoded"/>
+    <CheckBox
+        android:text="@string/msg_abgeschleppt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="120dp"
+        android:id="@+id/warn_driver_abschleppdienst" tools:ignore="RtlHardcoded"/>
+    <CheckBox
+        android:text="@string/msg_haltenverbot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="165dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/warn_driver_halteverbot" tools:ignore="RtlHardcoded"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="237dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="200dp"
+            android:hint="@string/msg_eingabe"
+            android:id="@+id/msg_warn_driver"
+            android:textAlignment="textStart"
+            android:inputType="textShortMessage"/>
+    </android.support.design.widget.TextInputLayout>
+    <Button
+        android:text="@string/msg_sende"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="280dp"
+        android:id="@+id/msg_warn_drive_sende" android:textAlignment="center"
+        tools:ignore="RtlHardcoded"/>
+    <Button
+        android:text="@string/msg_abbrechen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="460dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:id="@+id/msg_warn_driver_abbrechen"/>
 </FrameLayout>

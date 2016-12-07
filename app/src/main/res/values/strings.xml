@@ -30,4 +30,10 @@
     <string name="abbrechen">Abbrechen</string>
     <string name="senden">Senden</string>
     <string name="navigation">Navigation</string>
+    <string name="kennzeichen">Kennzeichen:</string>
+    <string name="msg_abbrechen">Abbrechen</string>
+    <string name="msg_sende">Sende</string>
+    <string name="msg_eingabe">hint</string>
+    <string name="msg_haltenverbot">Haltenverbot</string>
+    <string name="msg_abgeschleppt">Abgeschleppt</string>
 </resources>
