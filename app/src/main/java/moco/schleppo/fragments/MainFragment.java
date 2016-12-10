@@ -1,15 +1,12 @@
 package moco.schleppo.fragments;
 
 import android.app.Fragment;
-import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-
-import moco.schleppo.MainActivity;
 import moco.schleppo.R;
 
 /**

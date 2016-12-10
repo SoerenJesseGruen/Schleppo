@@ -22,7 +22,7 @@
         android:layout_marginTop="45dp" />
 
     <TextView
-        android:text="E-Mail"
+        android:text="@string/standard_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textViewLoginTitle"
@@ -32,7 +32,7 @@
         android:id="@+id/textViewMail" />
 
     <TextView
-        android:text="Passwort"
+        android:text="@string/standard_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
@@ -63,7 +63,7 @@
         android:id="@+id/editTextPassword" />
 
     <Button
-        android:text="Login"
+        android:text="@string/button_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="66dp"
@@ -73,7 +73,7 @@
         android:layout_toEndOf="@+id/textViewPassword" />
 
     <Button
-        android:text="SignUp"
+        android:text="@string/button_signup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/buttonSignUp_Login"

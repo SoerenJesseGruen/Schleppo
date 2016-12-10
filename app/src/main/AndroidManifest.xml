@@ -46,7 +46,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="LoginActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SignUpActivity"
@@ -54,7 +54,11 @@
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".fragments.UserManagement"
-            android:label="@string/title_activity_login"
+            android:label="UserManagement"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="SettingsActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
         <meta-data
             android:name="com.google.android.gms.version"

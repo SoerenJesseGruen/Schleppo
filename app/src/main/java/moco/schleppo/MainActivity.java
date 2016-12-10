@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.parse.Parse;
 
 import moco.schleppo.fragments.MainFragment;
@@ -99,8 +98,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.nav_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_frame, new ProfilFragment(), "profile");
             ft.addToBackStack("profile");
         } else if (id == R.id.nav_settings) {
-            //TODO: Settings-Activity starten
+            startActivity(new Intent(this, SettingsActivity.class));
         } else if (id == R.id.nav_login  || id == R.id.nav_logout) {
             startActivity(new Intent(this, UserManagement.class));
         } else if (id == R.id.nav_messages) {

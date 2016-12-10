@@ -67,7 +67,7 @@ public class SignUpActivity  extends AppCompatActivity {
                     });
                 } else {
                     Context context = getApplicationContext();
-                    CharSequence text = "Passwörter stimmern nicht überein!";
+                    CharSequence text = "Passwörter stimmen nicht überein!";
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);

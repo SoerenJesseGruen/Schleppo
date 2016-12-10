@@ -1,39 +1,68 @@
 <resources>
     <string name="app_name">Schleppo</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
-    <string name="hello_blank_fragment">Profil</string>
-
     <string name="standard_userName_header">Schleppo</string>
-    <string name="standard_licenseNumber_header">Sie sind nicht eingeloggt</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="standard_licenseNumber_header">You aren´t logged in!</string>
 
     <string name="AZ">AZ</string>
-    <string name="Category">category</string>
-    <string name="NearBy">nearby</string>
-    <string name="Popular">popular</string>
+    <string name="Category">Category</string>
+    <string name="NearBy">Nearby</string>
+    <string name="Popular">Popular</string>
+
+    <string name="standard_name">Name</string>
+    <string name="standard_forename">Forename</string>
+    <string name="standard_email">E-Mail</string>
+    <string name="standard_username">Username</string>
+    <string name="standard_license_number">License Number</string>
+    <string name="standard_password">Password</string>
+    <string name="standard_password_repeat">Repeat Password</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_profil">Profile</string>
+    <string name="menu_map">Map</string>
+    <string name="menu_messages">Messages</string>
+    <string name="menu_warnDriver">Warn Driver</string>
+    <string name="menu_setting">Settings</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_logout">Logout</string>
+
+    <string name="button_signup">Sign Up</string>
+    <string name="button_mark_parking_spot">Mark Parking</string>
+    <string name="button_warn_drivers">Warn Drivers</string>
+    <string name="button_login">Login</string>
+    <string name="button_profile_reset_password">Reset Password</string>
+    <string name="button_profile_save">Save Changes</string>
+
+    <string name="pref_notifications">Notification</string>
+    <string name="pref_notification_text">Push-Notification</string>
+    <string name="pref_location">Location</string>
+    <string name="pref_location_text">Activate Location</string>
+    <string name="pref_notification_true">You get Push-Notifications</string>
+    <string name="pref_notification_false">You get no Push-Notifications</string>
+    <string name="pref_location_true">Your current Location is used</string>
+    <string name="pref_location_false">Your current Location isn´t used</string>
 
     <string name="standard_profile_name">Name</string>
     <string name="standard_profile_vorname">Vorname</string>
     <string name="standard_profile_email">E-Mail</string>
     <string name="standard_profile_username">Username</string>
-    <string name="standard_profile_kennzeichen">Kennzeichen</string>
+    <string name="standard_profile_kennzeichen">License Number</string>
 
-    <string name="driver_warn">Warnung ausgeben</string>
-    <string name="driver_here_parking">Markieren</string>
+    <string name="driver_warn">Output Warning</string>
+    <string name="driver_here_parking">Mark</string>
     <string name="warndialog">Warndialog</string>
-    <string name="ordnungsamt">Ordnungsamt</string>
-    <string name="abschleppdienst">Abschleppdienst</string>
-    <string name="abbrechen">Abbrechen</string>
-    <string name="senden">Senden</string>
+    <string name="ordnungsamt">Office</string>
+    <string name="abschleppdienst">Towing Service</string>
+    <string name="abbrechen">Quit</string>
+    <string name="senden">Send</string>
     <string name="navigation">Navigation</string>
-    <string name="kennzeichen">Kennzeichen:</string>
-    <string name="msg_abbrechen">Abbrechen</string>
-    <string name="msg_sende">Sende</string>
-    <string name="msg_eingabe">hint</string>
-    <string name="msg_haltenverbot">Haltenverbot</string>
-    <string name="msg_abgeschleppt">Abgeschleppt</string>
+    <string name="kennzeichen">License Number</string>
+    <string name="msg_abbrechen">Quit</string>
+    <string name="msg_sende">Send</string>
+    <string name="msg_eingabe">Hint</string>
+    <string name="msg_haltenverbot">Prohibition of holding</string>
+    <string name="msg_abgeschleppt">Towed</string>
+
 </resources>

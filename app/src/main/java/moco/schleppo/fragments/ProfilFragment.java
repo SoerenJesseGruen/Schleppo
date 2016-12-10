@@ -107,11 +107,8 @@ public class ProfilFragment extends Fragment {
             btnEdit.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    try {
-                        UserManagement.parseUser.save();
-                    } catch (ParseException e) {
-                        Log.d("SaveChangesToParse", e.getMessage());
-                    }
+
+                    UserManagement.parseUser.saveInBackground();
                     getFragmentManager().popBackStack();
                 }
             });

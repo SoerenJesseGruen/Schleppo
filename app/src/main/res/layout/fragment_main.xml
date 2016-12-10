@@ -23,7 +23,7 @@
             app:srcCompat="@mipmap/ic_profil1"
             android:padding="10dp"
             android:id="@+id/imageButton_Profile"
-            android:contentDescription="Profil"
+            android:contentDescription="@string/menu_profil"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:background="@drawable/com_parse_ui_parse_login_button_background_selector" />
@@ -32,7 +32,7 @@
             app:srcCompat="@mipmap/ic_map"
             android:padding="10dp"
             android:id="@+id/imageButton_Map"
-            android:contentDescription="Karte"
+            android:contentDescription="@string/menu_map"
             android:layout_width="180dp"
             android:background="@drawable/com_parse_ui_parse_login_button_background_selector"
             android:layout_height="180dp" />
@@ -50,7 +50,7 @@
             app:srcCompat="@mipmap/ic_warning"
             android:padding="10dp"
             android:id="@+id/imageButton_Warning"
-            android:contentDescription="Warnung"
+            android:contentDescription="@string/menu_warnDriver"
             android:layout_width="180dp"
             android:layout_height="180dp"
             android:background="@drawable/com_parse_ui_parse_login_button_background_selector" />
@@ -60,7 +60,7 @@
             app:srcCompat="@mipmap/ic_profile"
             android:padding="10dp"
             android:id="@+id/imageButton_Messages"
-            android:contentDescription="Nachrichten"
+            android:contentDescription="@string/menu_messages"
             android:background="@drawable/com_parse_ui_parse_login_button_background_selector"
             android:layout_height="180dp" />
 

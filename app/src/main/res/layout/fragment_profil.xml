@@ -12,7 +12,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="@string/standard_profile_name"
             android:ems="10"
             android:id="@+id/tfName"
             android:layout_alignBaseline="@+id/tvName"
@@ -26,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="@string/standard_profile_username"
             android:ems="10"
             android:id="@+id/tfUsername"
             android:layout_alignBaseline="@+id/tvUsername"
@@ -38,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="@string/standard_profile_email"
             android:ems="10"
             android:id="@+id/tfEmail"
             android:layout_alignBaseline="@+id/tvEmail"
@@ -50,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="@string/standard_profile_kennzeichen"
             android:ems="10"
             android:id="@+id/tfKennzeichen"
             android:layout_alignBaseline="@+id/tvKennzeichen"
@@ -59,7 +55,7 @@
             android:layout_alignStart="@+id/tfUsername" />
 
         <TextView
-            android:text="Name:"
+            android:text="@string/standard_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
@@ -72,7 +68,7 @@
             android:layout_alignParentStart="true" />
 
         <Button
-            android:text="Passwort zurücksetzen"
+            android:text="@string/button_profile_reset_password"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
@@ -83,7 +79,7 @@
             android:id="@+id/btnPasswort" />
 
         <Button
-            android:text="Speichern"
+            android:text="@string/button_profile_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/btnPasswort"
@@ -96,7 +92,7 @@
             android:id="@+id/btnSpeichern" />
 
         <TextView
-            android:text="Vorname:"
+            android:text="@string/standard_forename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvVorname"
@@ -110,7 +106,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="@string/standard_profile_vorname"
             android:ems="10"
             android:id="@+id/tfVorname"
             android:layout_alignBaseline="@+id/tvVorname"
@@ -119,7 +114,7 @@
             android:layout_alignStart="@+id/tfName" />
 
         <TextView
-            android:text="Username:"
+            android:text="@string/standard_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvUsername"
@@ -130,7 +125,7 @@
             android:layout_alignStart="@+id/tvVorname" />
 
         <TextView
-            android:text="Kennzeichen:"
+            android:text="@string/standard_license_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -141,7 +136,7 @@
             android:layout_alignStart="@+id/tvUsername" />
 
         <TextView
-            android:text="E-Mail:"
+            android:text="@string/standard_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"

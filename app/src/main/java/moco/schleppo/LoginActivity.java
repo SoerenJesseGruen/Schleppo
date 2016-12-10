@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.parse.LogInCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.ui.ParseSignupFragment;
 
@@ -41,7 +43,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 EditText userMail = (EditText) findViewById(R.id.editTextEmail);
                 EditText userPassword = (EditText) findViewById(R.id.editTextPassword);
                 try {
-                    ParseUser.logIn(userMail.getText().toString(), userPassword.getText().toString());
+                    ParseUser.logInInBackground(userMail.getText().toString(), userPassword.getText().toString(), new LogInCallback() {
+                        @Override
+                        public void done(ParseUser user, ParseException e) {
+                            finish();
+                        }
+                    });
                 } catch (Exception e) {
                     Log.d("Login", e.getMessage());
 
