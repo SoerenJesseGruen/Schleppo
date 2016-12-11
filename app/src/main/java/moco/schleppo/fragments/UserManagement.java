@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.parse.LogOutCallback;
+import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.ui.ParseLoginActivity;
 import com.parse.ui.ParseLoginBuilder;
@@ -63,19 +65,20 @@ public class UserManagement extends Activity {
 
     private void doLogout() {
 
-        ParseUser.logOut();
-        parseUser = ParseUser.getCurrentUser();
+        ParseUser.logOutInBackground(new LogOutCallback() {
+            @Override
+            public void done(ParseException e) {
+                parseUser = ParseUser.getCurrentUser();
 
-        if(parseUser==null) {
-            resetTextFields ();
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.content_frame, new MainFragment(), "home");
-            ft.addToBackStack("home").commit();
-        } else {
-            Log.d("UserManagement", "Logout failed!");
-        }
+                if(parseUser==null) {
+                    resetTextFields ();
+                } else {
+                    Log.d("UserManagement", "Logout failed!");
+                }
 
-        finish();
+                finish();
+            }
+        });
     }
 
     public static boolean checkUser () {

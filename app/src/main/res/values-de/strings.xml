@@ -7,7 +7,7 @@
     <string name="NearBy">In der Nähe</string>
     <string name="Popular">Beliebt</string>
     <string name="button_mark_parking_spot">Parkplatz markieren</string>
-    <string name="button_signup">Anmelden</string>
+    <string name="button_signup">Registrieren</string>
     <string name="button_warn_drivers">Fahrer warnen</string>
     <string name="menu_home">Home</string>
     <string name="menu_login">Login</string>
@@ -58,4 +58,11 @@
     <string name="standard_profile_username">Username</string>
     <string name="standard_profile_vorname">Vorname</string>
     <string name="warndialog">Warndialog</string>
+    <string name="msg_quit_warning">Warnung wurde abgebrochen</string>
+    <string name="msg_signup_password_dismatch">Passwörter stimmen nicht überein!</string>
+    <string name="msg_login_wrong_entries">Falsche Eingaben!</string>
+    <string name="msg_no_signup">Registrierung abgebrochen!</string>
+    <string name="title_activity_login">Schleppo Login</string>
+    <string name="title_activity_settings">Einstellungen</string>
+    <string name="title_activity_signup">Schleppo SignUp</string>
 </resources>

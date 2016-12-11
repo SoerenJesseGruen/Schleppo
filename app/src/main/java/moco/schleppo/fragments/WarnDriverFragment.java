@@ -30,7 +30,7 @@ public class WarnDriverFragment extends Fragment {
         bAbbruch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(), "Nachrichten wurde abgebruchen", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), R.string.msg_quit_warning, Toast.LENGTH_LONG).show();
 
             }
         });

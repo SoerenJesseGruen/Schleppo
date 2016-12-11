@@ -1,5 +1,6 @@
 package moco.schleppo;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -59,6 +60,7 @@ public class SignUpActivity  extends AppCompatActivity {
                         @Override
                         public void done(ParseException e) {
                             if (e == null) {
+                                setResult(Activity.RESULT_OK);
                                 finish();
                             } else {
                                 Log.d("SignUp", e.getMessage());
@@ -67,7 +69,7 @@ public class SignUpActivity  extends AppCompatActivity {
                     });
                 } else {
                     Context context = getApplicationContext();
-                    CharSequence text = "Passwörter stimmen nicht überein!";
+                    CharSequence text = getString(R.string.msg_signup_password_dismatch);
                     int duration = Toast.LENGTH_SHORT;
 
                     Toast toast = Toast.makeText(context, text, duration);
@@ -75,5 +77,12 @@ public class SignUpActivity  extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setResult(Activity.RESULT_CANCELED);
+        finishActivity(-1);
     }
 }

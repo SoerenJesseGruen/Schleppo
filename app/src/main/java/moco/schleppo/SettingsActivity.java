@@ -1,10 +1,10 @@
 package moco.schleppo;
 
+import android.app.ActionBar;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v7.widget.Toolbar;
 
 /**
  * Created by soere on 08.12.2016.
@@ -23,10 +23,27 @@ public class SettingsActivity extends PreferenceActivity
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.layout_settings);
-        getActionBar();
 
         notificationPref = findPreference(PREF_KEY_NOTIFICATION);
         locationPref = findPreference(PREF_KEY_LOCATION);
+
+        boolean notificationPrefIsSet = notificationPref.getSharedPreferences().getBoolean(PREF_KEY_NOTIFICATION, true);
+        boolean locationPrefIsSet = locationPref.getSharedPreferences().getBoolean(PREF_KEY_LOCATION, true);
+        String newNotificationSummary;
+        String newLocationSummary;
+        if(notificationPrefIsSet) {
+            newNotificationSummary = getString(R.string.pref_notification_true);
+        } else {
+            newNotificationSummary = getString(R.string.pref_notification_false);
+        }
+        notificationPref.setSummary(newNotificationSummary);
+
+        if(locationPrefIsSet) {
+            newLocationSummary = getString(R.string.pref_location_true);
+        } else {
+            newLocationSummary = getString(R.string.pref_location_false);
+        }
+        locationPref.setSummary(newLocationSummary);
     }
 
     @Override
@@ -50,16 +67,17 @@ public class SettingsActivity extends PreferenceActivity
             } else {
                 newSummary = getString(R.string.pref_notification_false);
             }
-                notificationPref.setSummary(sharedPreferences.getString(key, newSummary));
+            notificationPref.setSummary(newSummary);
+
         } else if(key.equals(PREF_KEY_LOCATION)) {
-            boolean locationPrefIsSet = sharedPreferences.getBoolean(PREF_KEY_NOTIFICATION, true);
+            boolean locationPrefIsSet = sharedPreferences.getBoolean(PREF_KEY_LOCATION, true);
             String newSummary;
             if(locationPrefIsSet) {
                 newSummary = getString(R.string.pref_location_true);
             } else {
                 newSummary = getString(R.string.pref_location_false);
             }
-            locationPref.setSummary(sharedPreferences.getString(key, newSummary));
+            locationPref.setSummary(newSummary);
         }
     }
 }

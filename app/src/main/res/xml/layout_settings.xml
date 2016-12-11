@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
-    android:layout_width="match_parent" >
+    android:layout_width="match_parent"
+    tools:context="moco.schleppo.SettingsActivity" >
+
     <PreferenceCategory
         android:title="@string/pref_notifications">
         <CheckBoxPreference
@@ -18,4 +21,5 @@
             android:title="@string/pref_location_text"
             android:defaultValue="true" />
     </PreferenceCategory>
+
 </PreferenceScreen>

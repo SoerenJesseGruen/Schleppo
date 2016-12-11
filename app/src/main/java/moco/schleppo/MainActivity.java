@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     static final int REQUEST_CODE_LOGIN_LOGOUT = 0;
-    static final int REQUEST_CODE_PROFILE = 1;
 
     static public MenuItem loginView;
     static public MenuItem logoutView;
@@ -126,7 +125,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_settings) {
             startActivity(new Intent(this, SettingsActivity.class));
         } else if (id == R.id.nav_login  || id == R.id.nav_logout) {
-            startActivity(new Intent(this, UserManagement.class));
+            startActivityForResult(new Intent(this, UserManagement.class), REQUEST_CODE_LOGIN_LOGOUT);
         } else if (id == R.id.nav_messages) {
             ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
             ft.addToBackStack("messages");
@@ -138,9 +137,11 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 
+    // TODO: absprechen, ob bei Logout in MainFragment springen oder in aktuellen Fragment bleiben
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

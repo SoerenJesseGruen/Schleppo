@@ -67,30 +67,6 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <Button
-            android:text="@string/button_profile_reset_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/tvEmail"
-            android:layout_alignStart="@+id/tvEmail"
-            android:layout_marginBottom="26dp"
-            android:textSize="12sp"
-            android:id="@+id/btnPasswort" />
-
-        <Button
-            android:text="@string/button_profile_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btnPasswort"
-            android:layout_alignRight="@+id/tfEmail"
-            android:layout_alignEnd="@+id/tfEmail"
-            android:layout_marginRight="32dp"
-            android:layout_marginEnd="32dp"
-            android:textSize="12sp"
-            android:enabled="true"
-            android:id="@+id/btnSpeichern" />
-
         <TextView
             android:text="@string/standard_forename"
             android:layout_width="wrap_content"
@@ -145,6 +121,29 @@
             android:layout_below="@+id/tfKennzeichen"
             android:layout_alignLeft="@+id/tvKennzeichen"
             android:layout_alignStart="@+id/tvKennzeichen" />
+
+        <Button
+            android:text="@string/button_profile_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:enabled="true"
+            android:id="@+id/btnSpeichern"
+            android:layout_above="@+id/btnPasswort"
+            android:layout_alignRight="@+id/tfEmail"
+            android:layout_alignEnd="@+id/tfEmail"
+            android:layout_marginBottom="14dp" />
+
+        <Button
+            android:text="@string/button_profile_reset_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/btnPasswort"
+            android:layout_marginBottom="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/tfEmail"
+            android:layout_alignEnd="@+id/tfEmail" />
     </RelativeLayout>
 
 </FrameLayout>

@@ -53,7 +53,7 @@
     <string name="driver_warn">Output Warning</string>
     <string name="driver_here_parking">Mark</string>
     <string name="warndialog">Warndialog</string>
-    <string name="ordnungsamt">Office</string>
+    <string name="ordnungsamt">Public Order Office</string>
     <string name="abschleppdienst">Towing Service</string>
     <string name="abbrechen">Quit</string>
     <string name="senden">Send</string>
@@ -64,5 +64,12 @@
     <string name="msg_eingabe">Hint</string>
     <string name="msg_haltenverbot">Prohibition of holding</string>
     <string name="msg_abgeschleppt">Towed</string>
+    <string name="msg_quit_warning">Warning has been canceled</string>
+    <string name="msg_signup_password_dismatch">Passwords don´t match!</string>
+    <string name="msg_login_wrong_entries">Wrong Entries!</string>
+    <string name="msg_no_signup">SignUp cancelled!</string>
+    <string name="title_activity_login">Schleppo Login</string>
+    <string name="title_activity_signup">Schleppo SignUp</string>
+    <string name="title_activity_settings">Settings</string>
 
 </resources>
