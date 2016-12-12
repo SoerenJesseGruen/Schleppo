@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "260954153531",
+    "firebase_url": "https://schleppo-7329a.firebaseio.com",
+    "project_id": "schleppo-7329a",
+    "storage_bucket": "schleppo-7329a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260954153531:android:647e662bc32c60dd",
+        "android_client_info": {
+          "package_name": "moco.schleppo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260954153531-3up46759arlq6vnsgcrj0qs0fmbq1l1o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCo8_BxheK5DxxtmdpGMFwc93lrFaAmizw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
