@@ -48,7 +48,7 @@
             android:hint="@string/msg_eingabe"
             android:id="@+id/msg_warn_driver"
             android:textAlignment="textStart"
-            android:inputType="textShortMessage"/>
+            android:inputType="textShortMessage" android:selectAllOnFocus="false"/>
     </android.support.design.widget.TextInputLayout>
     <Button
         android:text="@string/msg_sende"
@@ -56,9 +56,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="460dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="280dp"
-        android:id="@+id/msg_warn_drive_sende" android:textAlignment="center"
-        tools:ignore="RtlHardcoded"/>
+        android:layout_marginLeft="260dp"
+        android:id="@+id/msg_warn_drive_sende"
+        android:textAlignment="center"
+        tools:ignore="RtlHardcoded" style="@style/Widget.AppCompat.Button.Borderless"/>
     <Button
         android:text="@string/msg_abbrechen"
         android:layout_width="wrap_content"
@@ -66,5 +67,5 @@
         android:layout_marginTop="460dp"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:id="@+id/msg_warn_driver_abbrechen"/>
+        android:id="@+id/msg_warn_driver_abbrechen" style="@style/Widget.AppCompat.Button.Borderless"/>
 </FrameLayout>

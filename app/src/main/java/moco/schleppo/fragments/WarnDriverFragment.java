@@ -30,8 +30,19 @@ public class WarnDriverFragment extends Fragment {
         bAbbruch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Toast.makeText(getActivity(), R.string.msg_quit_warning, Toast.LENGTH_LONG).show();
 
+
+            }
+        });
+
+        final Button bSend = (Button) rootView.findViewById(R.id.msg_warn_drive_sende);
+        bSend.setOnClickListener(new View.OnClickListener(){
+
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getActivity(), "Warnung ist gesendet", Toast.LENGTH_LONG).show();
             }
         });
 
