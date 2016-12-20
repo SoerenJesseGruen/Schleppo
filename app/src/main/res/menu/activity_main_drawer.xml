@@ -5,36 +5,36 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_menu_camera"
-            android:title="@string/menu_home" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_profile"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="@string/menu_profil" />
+            android:title="Profil" />
         <item
             android:id="@+id/nav_map"
             android:icon="@android:drawable/ic_dialog_map"
-            android:title="@string/menu_map" />
+            android:title="Karte" />
         <item
             android:id="@+id/nav_messages"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_messages" />
+            android:title="Nachrichten" />
         <item
             android:id="@+id/nav_warn_driver"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_warnDriver" />
+            android:title="Fahrer warnen" />
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_setting" />
+            android:title="Einstellungen" />
         <item
             android:id="@+id/nav_login"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_login"
+            android:title="Login"
             android:visible="true" />
         <item
             android:id="@+id/nav_logout"
             android:icon="@drawable/ic_menu_manage"
-            android:title="@string/menu_logout"
+            android:title="Logout"
             android:visible="false" />
     </group>
     

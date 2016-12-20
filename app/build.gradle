@@ -34,6 +34,12 @@ dependencies {
     compile 'com.parse.bolts:bolts-android:1.+'
     compile 'com.parse:parse-android:1.+'
 
-    compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'com.google.android.gms:play-services:10.0.0'
+
+    // Google Firebase
+    compile 'com.google.firebase:firebase-core:10.0.0'
+
+    apply plugin: 'com.google.gms.google-services'
+
     testCompile 'junit:junit:4.12'
 }

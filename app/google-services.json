@@ -1,27 +1,35 @@
 {
   "project_info": {
-    "project_number": "260954153531",
-    "firebase_url": "https://schleppo-7329a.firebaseio.com",
-    "project_id": "schleppo-7329a",
-    "storage_bucket": "schleppo-7329a.appspot.com"
+    "project_number": "619225868768",
+    "firebase_url": "https://schleppo-f8bc8.firebaseio.com",
+    "project_id": "schleppo-f8bc8",
+    "storage_bucket": "schleppo-f8bc8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:260954153531:android:647e662bc32c60dd",
+        "mobilesdk_app_id": "1:619225868768:android:647e662bc32c60dd",
         "android_client_info": {
           "package_name": "moco.schleppo"
         }
       },
       "oauth_client": [
         {
-          "client_id": "260954153531-3up46759arlq6vnsgcrj0qs0fmbq1l1o.apps.googleusercontent.com",
+          "client_id": "619225868768-ltbhh9pv7o1v1fdh11cio79q6pbg0570.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "moco.schleppo",
+            "certificate_hash": "58143859761FC32369631D01DE13EDBD3B827B23"
+          }
+        },
+        {
+          "client_id": "619225868768-ki73eu215cc3sv8hd0o1f49inb5crqhi.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCo8_BxheK5DxxtmdpGMFwc93lrFaAmizw"
+          "current_key": "AIzaSyCo3fGXXxHSsBOiKIVvuhT9DPkUbqD-hjs"
         }
       ],
       "services": {
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619225868768-ki73eu215cc3sv8hd0o1f49inb5crqhi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2
