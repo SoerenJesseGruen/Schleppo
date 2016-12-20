@@ -12,7 +12,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Name"
             android:ems="10"
             android:id="@+id/tfName"
             android:layout_alignBaseline="@+id/tvName"
@@ -26,7 +25,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Username"
             android:ems="10"
             android:id="@+id/tfUsername"
             android:layout_alignBaseline="@+id/tvUsername"
@@ -38,7 +36,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="E-Mail"
             android:ems="10"
             android:id="@+id/tfEmail"
             android:layout_alignBaseline="@+id/tvEmail"
@@ -50,7 +47,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Kennzeichen"
             android:ems="10"
             android:id="@+id/tfKennzeichen"
             android:layout_alignBaseline="@+id/tvKennzeichen"
@@ -59,7 +55,7 @@
             android:layout_alignStart="@+id/tfUsername" />
 
         <TextView
-            android:text="Name:"
+            android:text="@string/standard_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="19dp"
@@ -71,32 +67,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
-        <Button
-            android:text="Passwort zurücksetzen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignLeft="@+id/tvEmail"
-            android:layout_alignStart="@+id/tvEmail"
-            android:layout_marginBottom="26dp"
-            android:textSize="12sp"
-            android:id="@+id/btnPasswort" />
-
-        <Button
-            android:text="Speichern"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/btnPasswort"
-            android:layout_alignRight="@+id/tfEmail"
-            android:layout_alignEnd="@+id/tfEmail"
-            android:layout_marginRight="32dp"
-            android:layout_marginEnd="32dp"
-            android:textSize="12sp"
-            android:enabled="true"
-            android:id="@+id/btnSpeichern" />
-
         <TextView
-            android:text="Vorname:"
+            android:text="@string/standard_forename"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvVorname"
@@ -110,7 +82,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:text="Vorname"
             android:ems="10"
             android:id="@+id/tfVorname"
             android:layout_alignBaseline="@+id/tvVorname"
@@ -119,7 +90,7 @@
             android:layout_alignStart="@+id/tfName" />
 
         <TextView
-            android:text="Username:"
+            android:text="@string/standard_username"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tvUsername"
@@ -130,7 +101,7 @@
             android:layout_alignStart="@+id/tvVorname" />
 
         <TextView
-            android:text="Kennzeichen:"
+            android:text="@string/standard_license_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -141,7 +112,7 @@
             android:layout_alignStart="@+id/tvUsername" />
 
         <TextView
-            android:text="E-Mail:"
+            android:text="@string/standard_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="35dp"
@@ -150,6 +121,29 @@
             android:layout_below="@+id/tfKennzeichen"
             android:layout_alignLeft="@+id/tvKennzeichen"
             android:layout_alignStart="@+id/tvKennzeichen" />
+
+        <Button
+            android:text="@string/button_profile_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:enabled="true"
+            android:id="@+id/btnSpeichern"
+            android:layout_above="@+id/btnPasswort"
+            android:layout_alignRight="@+id/tfEmail"
+            android:layout_alignEnd="@+id/tfEmail"
+            android:layout_marginBottom="14dp" />
+
+        <Button
+            android:text="@string/button_profile_reset_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:id="@+id/btnPasswort"
+            android:layout_marginBottom="14dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/tfEmail"
+            android:layout_alignEnd="@+id/tfEmail" />
     </RelativeLayout>
 
 </FrameLayout>

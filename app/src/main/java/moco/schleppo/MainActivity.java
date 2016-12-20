@@ -2,6 +2,7 @@ package moco.schleppo;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -26,6 +27,8 @@ import moco.schleppo.fragments.WarnDriverFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    static final int REQUEST_CODE_LOGIN_LOGOUT = 0;
 
     static public MenuItem loginView;
     static public MenuItem logoutView;
@@ -65,14 +68,12 @@ public class MainActivity extends AppCompatActivity
                 .server("https://team2.parse.dock.moxd.io/api/")   // '/' important after 'api'
                 .build());
 
-        UserManagement.checkUser(navigationView);
+        UserManagement.checkUser();
 
         ParseInstallation.getCurrentInstallation().saveInBackground();
 
         ParsePush.subscribeInBackground("Giants");
-
     }
-
 
     @Override
     public void onBackPressed() {
@@ -81,11 +82,11 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else {
             super.onBackPressed();
-        }
-        FragmentManager fm = getFragmentManager();
-        fm.popBackStack();
-    }
 
+            FragmentManager fm = getFragmentManager();
+            fm.popBackStack();
+        }
+    }
 
 
     @Override
@@ -103,8 +104,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.nav_settings) {
+            startActivity(new Intent(this, SettingsActivity.class));
         }
 
         return super.onOptionsItemSelected(item);
@@ -129,15 +130,9 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_frame, new ProfilFragment(), "profile");
             ft.addToBackStack("profile");
         } else if (id == R.id.nav_settings) {
-            //TODO: Settings-Activity starten
-        } else if (id == R.id.nav_login) {
-            UserManagement.doLogin(this);
-            ft.replace(R.id.content_frame, new MainFragment(), "home");
-            ft.addToBackStack("home");
-        } else if (id == R.id.nav_logout) {
-            UserManagement.doLogout(this);
-            ft.replace(R.id.content_frame, new MainFragment(), "home");
-            ft.addToBackStack("home");
+            startActivity(new Intent(this, SettingsActivity.class));
+        } else if (id == R.id.nav_login  || id == R.id.nav_logout) {
+            startActivityForResult(new Intent(this, UserManagement.class), REQUEST_CODE_LOGIN_LOGOUT);
         } else if (id == R.id.nav_messages) {
             ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
             ft.addToBackStack("messages");
@@ -149,6 +144,19 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
+    }
+
+    // TODO: absprechen, ob bei Logout in MainFragment springen oder in aktuellen Fragment bleiben
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == REQUEST_CODE_LOGIN_LOGOUT) {
+            FragmentTransaction ft = getFragmentManager().beginTransaction();
+            ft.replace(R.id.content_frame, new MainFragment(), "home");
+            ft.addToBackStack("home").commit();
+        }
     }
 }

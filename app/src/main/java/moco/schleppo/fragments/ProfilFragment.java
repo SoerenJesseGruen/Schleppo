@@ -1,5 +1,6 @@
 package moco.schleppo.fragments;
 
+import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -20,6 +21,7 @@ import com.parse.ParseUser;
 import com.parse.RequestPasswordResetCallback;
 import com.parse.ui.ParseLoginBuilder;
 
+import moco.schleppo.LoginActivity;
 import moco.schleppo.MainActivity;
 import moco.schleppo.R;
 
@@ -27,14 +29,16 @@ import moco.schleppo.R;
 public class ProfilFragment extends Fragment {
 
     Button btnEdit;
+    View rootView;
+    static final int REQUEST_CODE = 0;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View rootView = inflater.inflate(R.layout.fragment_profil, container, false);
-
+        rootView = inflater.inflate(R.layout.fragment_profil, container, false);
         if(UserManagement.parseUser==null) {
-            UserManagement.doLogin(getActivity());
+            Intent intent = new Intent(getActivity(), UserManagement.class);
+            startActivityForResult(intent, REQUEST_CODE);
         } else {
             setTextFieldsAndListener(rootView);
         }
@@ -45,6 +49,13 @@ public class ProfilFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode==Activity.RESULT_OK) {
+            setTextFieldsAndListener(rootView);
+        } else if(resultCode== Activity.RESULT_CANCELED) {
+            FragmentManager fm = getFragmentManager();
+            fm.popBackStack();
+        }
     }
 
     private void setTextFieldsAndListener (View rootView) {
@@ -73,7 +84,7 @@ public class ProfilFragment extends Fragment {
 
         Button btnChangePassword = (Button) rootView.findViewById(R.id.btnPasswort);
         btnEdit = (Button) rootView.findViewById(R.id.btnSpeichern);
-        btnEdit.setEnabled(true);
+        btnEdit.setEnabled(false);
 
         btnChangePassword.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -90,20 +101,28 @@ public class ProfilFragment extends Fragment {
     TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            btnEdit.setEnabled(true);
+            btnEdit.setEnabled(false);
         }
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-            btnEdit.setEnabled(false);
+            btnEdit.setEnabled(true);
             btnEdit.setOnClickListener( new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    try {
-                        UserManagement.parseUser.save();
-                    } catch (ParseException e) {
-                        Log.d("SaveChangesToParse", e.getMessage());
-                    }
+                    EditText tfName = (EditText) rootView.findViewById(R.id.tfName);
+                    EditText tfUsername = (EditText) rootView.findViewById(R.id.tfUsername);
+                    EditText tfVorname = (EditText) rootView.findViewById(R.id.tfVorname);
+                    EditText tfEmail = (EditText) rootView.findViewById(R.id.tfEmail);
+                    EditText tfKennzeichen = (EditText) rootView.findViewById(R.id.tfKennzeichen);
+
+                    UserManagement.parseUser.setEmail(tfEmail.getText().toString());
+                    UserManagement.parseUser.setUsername(tfUsername.getText().toString());
+                    UserManagement.parseUser.put("name", tfName.getText().toString());
+                    UserManagement.parseUser.put("forename", tfVorname.getText().toString());
+                    UserManagement.parseUser.put("licenseNumber", tfKennzeichen.getText().toString());
+
+                    UserManagement.parseUser.saveInBackground();
                     getFragmentManager().popBackStack();
                 }
             });
