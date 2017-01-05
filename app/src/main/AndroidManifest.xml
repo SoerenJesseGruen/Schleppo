@@ -40,7 +40,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -50,7 +51,8 @@
         <activity
             android:name="com.parse.ui.ParseLoginActivity"
             android:label="@string/app_name"
-            android:launchMode="singleTop">
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait">
 
             <!-- For more options, see https://www.parse.com/docs/android_guide#ui-login -->
             <meta-data
@@ -62,20 +64,24 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme"></activity>
+            android:label="@string/menu_login"
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_signup"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".fragments.UserManagement"
             android:label="UserManagement"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait"></activity>
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />

@@ -17,5 +17,5 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
     View rootView = inflater.inflate(R.layout.fragment_messages, container, false);
 
     return rootView;
-}
+    }
 }

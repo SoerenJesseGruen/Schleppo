@@ -1,28 +1,19 @@
 package moco.schleppo.fragments;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.ui.ParseLoginActivity;
-import com.parse.ui.ParseLoginBuilder;
 
 import moco.schleppo.LoginActivity;
 import moco.schleppo.MainActivity;
 import moco.schleppo.R;
-
-import static java.lang.Thread.sleep;
-import static moco.schleppo.R.styleable.NavigationView;
 
 /**
  * Created by soere on 27.11.2016.
