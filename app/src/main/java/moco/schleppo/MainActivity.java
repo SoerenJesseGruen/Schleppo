@@ -13,7 +13,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.google.android.gms.maps.GoogleMap;
 import com.parse.Parse;
 import com.parse.ParseInstallation;
 import com.parse.ParsePush;
@@ -69,9 +68,7 @@ public class MainActivity extends AppCompatActivity
                 .build());
 
         UserManagement.checkUser();
-
         ParseInstallation.getCurrentInstallation().saveInBackground();
-
         ParsePush.subscribeInBackground("Giants");
     }
 

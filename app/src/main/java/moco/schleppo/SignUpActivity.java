@@ -48,13 +48,13 @@ public class SignUpActivity  extends AppCompatActivity {
                 EditText password1 = (EditText) findViewById(R.id.regPassword1InputText);
                 EditText password2 = (EditText) findViewById(R.id.regPassword2InputText);
 
-                if(password1.getText().toString().compareTo(password2.getText().toString()) == 0) {
-                    parseUser.setUsername(username.getText().toString());
-                    parseUser.setEmail(email.getText().toString());
+                if(password1.getText().toString().trim().compareTo(password2.getText().toString().trim()) == 0) {
+                    parseUser.setUsername(username.getText().toString().trim());
+                    parseUser.setEmail(email.getText().toString().trim());
                     parseUser.setPassword(password1.getText().toString());
-                    parseUser.put("name", name.getText().toString());
-                    parseUser.put("forename", forename.getText().toString());
-                    parseUser.put("licenseNumber", licenseNumber.getText().toString());
+                    parseUser.put("name", name.getText().toString().trim());
+                    parseUser.put("forename", forename.getText().toString().trim());
+                    parseUser.put("licenseNumber", licenseNumber.getText().toString().trim().toUpperCase());
 
                     parseUser.signUpInBackground(new SignUpCallback() {
                         @Override

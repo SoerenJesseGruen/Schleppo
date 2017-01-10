@@ -50,7 +50,8 @@
             android:hint="@string/msg_eingabe"
             android:id="@+id/msg_warn_driver"
             android:textAlignment="textStart"
-            android:inputType="textShortMessage" android:selectAllOnFocus="false"/>
+            android:inputType="textShortMessage"
+            android:selectAllOnFocus="false"/>
     </android.support.design.widget.TextInputLayout>
     <Button
         android:text="@string/msg_sende"

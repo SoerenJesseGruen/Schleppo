@@ -36,7 +36,7 @@ public class ProfilFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         rootView = inflater.inflate(R.layout.fragment_profil, container, false);
-        if(UserManagement.parseUser==null) {
+        if(UserManagement.isAnonymousUser) {
             Intent intent = new Intent(getActivity(), UserManagement.class);
             startActivityForResult(intent, REQUEST_CODE);
         } else {
@@ -116,11 +116,11 @@ public class ProfilFragment extends Fragment {
                     EditText tfEmail = (EditText) rootView.findViewById(R.id.tfEmail);
                     EditText tfKennzeichen = (EditText) rootView.findViewById(R.id.tfKennzeichen);
 
-                    UserManagement.parseUser.setEmail(tfEmail.getText().toString());
-                    UserManagement.parseUser.setUsername(tfUsername.getText().toString());
-                    UserManagement.parseUser.put("name", tfName.getText().toString());
-                    UserManagement.parseUser.put("forename", tfVorname.getText().toString());
-                    UserManagement.parseUser.put("licenseNumber", tfKennzeichen.getText().toString());
+                    UserManagement.parseUser.setEmail(tfEmail.getText().toString().trim());
+                    UserManagement.parseUser.setUsername(tfUsername.getText().toString().trim());
+                    UserManagement.parseUser.put("name", tfName.getText().toString().trim());
+                    UserManagement.parseUser.put("forename", tfVorname.getText().toString().trim());
+                    UserManagement.parseUser.put("licenseNumber", tfKennzeichen.getText().toString().trim().toUpperCase());
 
                     UserManagement.parseUser.saveInBackground();
                     getFragmentManager().popBackStack();

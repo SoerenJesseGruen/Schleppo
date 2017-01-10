@@ -7,9 +7,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.parse.LogInCallback;
 import com.parse.LogOutCallback;
+import com.parse.ParseAnonymousUtils;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+
+import java.util.HashMap;
 
 import moco.schleppo.LoginActivity;
 import moco.schleppo.MainActivity;
@@ -23,12 +28,13 @@ public class UserManagement extends Activity {
 
     public static final int LOGIN_REQUEST = 0;
     public static ParseUser parseUser;
+    public static boolean isAnonymousUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(parseUser==null) {
+        if(isAnonymousUser) {
             doLogin();
         } else {
             doLogout();
@@ -41,21 +47,26 @@ public class UserManagement extends Activity {
 
         if(requestCode == LOGIN_REQUEST) {
             checkUser();
+            //parseUser.put("authData", null);
+            //parseUser.saveInBackground();
             finish();
         }
     }
 
     private void doLogin() {
-
-        //ParseLoginBuilder builder = new ParseLoginBuilder(this);
-        //Intent loginIntent = builder.build();
+        try {
+            ParseUser.getCurrentUser().delete();
+        } catch (Exception e) {
+            Log.d("AnonymousUser", "Failed to delete AnonymousUser");
+            Log.d("AnonymousUser", e.getMessage());
+        }
+        parseUser = null;
         Intent loginIntent = new Intent(this, LoginActivity.class);
         startActivityForResult(loginIntent, LOGIN_REQUEST);
     }
 
 
     private void doLogout() {
-
         ParseUser.logOutInBackground(new LogOutCallback() {
             @Override
             public void done(ParseException e) {
@@ -63,6 +74,7 @@ public class UserManagement extends Activity {
 
                 if(parseUser==null) {
                     resetTextFields ();
+                    doAnonymousLogin();
                 } else {
                     Log.d("UserManagement", "Logout failed!");
                 }
@@ -72,10 +84,16 @@ public class UserManagement extends Activity {
         });
     }
 
-    public static boolean checkUser () {
+    public static void checkUser () {
         parseUser = ParseUser.getCurrentUser();
 
-        if(parseUser!=null) {
+        if(parseUser==null) {
+            doAnonymousLogin();
+        } else {
+            isAnonymousUser = (parseUser.get("authData")!=null? true: false);
+        }
+
+        if(!isAnonymousUser) {
             MainActivity.loginView.setVisible(false);
             MainActivity.logoutView.setVisible(true);
 
@@ -83,11 +101,23 @@ public class UserManagement extends Activity {
             View headerView = MainActivity.navigationView.getHeaderView(0);
             ((TextView) headerView.findViewById(R.id.userName)).setText(parseUser.getUsername());
             ((TextView) headerView.findViewById(R.id.userLicenseNumber)).setText(licenseNumber);
-
-            return true;
         }
+    }
 
-        return false;
+    private static void doAnonymousLogin() {
+        ParseAnonymousUtils.logIn(new LogInCallback() {
+            @Override
+            public void done(ParseUser user, ParseException e) {
+                if (e != null) {
+                    Log.d("AnonymousUser", "Anonymous login failed.");
+                    Log.d("AnonymousUser", e.getMessage());
+                } else {
+                    Log.d("AnonymousUser", "Anonymous user logged in.");
+                    parseUser = user;
+                    isAnonymousUser = true;
+                }
+            }
+        });
     }
 
     private void resetTextFields () {

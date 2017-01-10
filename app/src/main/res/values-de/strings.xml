@@ -48,7 +48,7 @@
     <string name="msg_abgeschleppt">Abgeschleppt</string>
     <string name="msg_eingabe">Hinweis</string>
     <string name="msg_haltenverbot">Halteverbot</string>
-    <string name="msg_sende">Sende</string>
+    <string name="msg_sende">Senden</string>
     <string name="navigation">Navigation</string>
     <string name="ordnungsamt">Ordnungsamt</string>
     <string name="senden">Senden</string>
@@ -65,4 +65,6 @@
     <string name="title_activity_login">Schleppo Login</string>
     <string name="title_activity_settings">Einstellungen</string>
     <string name="title_activity_signup">Schleppo SignUp</string>
+    <string name="msg_send_warning">Warnung wurde versand!</string>
+    <string name="driver_not_available">Kennzeichen ist nicht registriert!</string>
 </resources>

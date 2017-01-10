@@ -15,6 +15,8 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 
+import moco.schleppo.fragments.UserManagement;
+
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnLogin;
@@ -47,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             showExceptionToast(e);
                         } else {
                             setResult(Activity.RESULT_OK);
+                            UserManagement.isAnonymousUser = false;
+                            UserManagement.parseUser = user;
                             finish();
                         }
                     }
