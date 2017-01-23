@@ -70,4 +70,13 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
+    <Button
+        android:text="@string/button_profile_reset_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:id="@+id/btnPasswort"
+        android:layout_marginBottom="14dp"
+        android:layout_alignParentBottom="true"  />
+
 </RelativeLayout>

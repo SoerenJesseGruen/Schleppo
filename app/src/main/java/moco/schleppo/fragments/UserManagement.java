@@ -21,7 +21,7 @@ import moco.schleppo.MainActivity;
 import moco.schleppo.R;
 
 /**
- * Created by soere on 27.11.2016.
+ * Created by soeren on 27.11.2016.
  */
 
 public class UserManagement extends Activity {
@@ -88,6 +88,7 @@ public class UserManagement extends Activity {
         parseUser = ParseUser.getCurrentUser();
 
         if(parseUser==null) {
+            isAnonymousUser = true;
             doAnonymousLogin();
         } else {
             isAnonymousUser = (parseUser.get("authData")!=null? true: false);

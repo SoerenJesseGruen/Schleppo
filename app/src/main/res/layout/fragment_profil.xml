@@ -129,21 +129,11 @@
             android:textSize="12sp"
             android:enabled="true"
             android:id="@+id/btnSpeichern"
-            android:layout_above="@+id/btnPasswort"
-            android:layout_alignRight="@+id/tfEmail"
-            android:layout_alignEnd="@+id/tfEmail"
-            android:layout_marginBottom="14dp" />
-
-        <Button
-            android:text="@string/button_profile_reset_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="12sp"
-            android:id="@+id/btnPasswort"
-            android:layout_marginBottom="14dp"
             android:layout_alignParentBottom="true"
             android:layout_alignRight="@+id/tfEmail"
-            android:layout_alignEnd="@+id/tfEmail" />
+            android:layout_alignEnd="@+id/tfEmail"
+            android:layout_marginBottom="24dp" />
+
     </RelativeLayout>
 
 </FrameLayout>

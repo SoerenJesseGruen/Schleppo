@@ -9,23 +9,28 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.parse.Parse;
 import com.parse.ParseInstallation;
+import com.parse.ParseObject;
 import com.parse.ParsePush;
 
 import moco.schleppo.fragments.MainFragment;
 import moco.schleppo.fragments.MapsFragment;
-import moco.schleppo.fragments.MessagesFragment;
+import moco.schleppo.fragments.MessageDetailFragment;
+import moco.schleppo.fragments.MessageFragment;
 import moco.schleppo.fragments.ProfilFragment;
 import moco.schleppo.fragments.UserManagement;
 import moco.schleppo.fragments.WarnDriverFragment;
+import moco.schleppo.fragments.MessageFragment.OnListFragmentInteractionListener;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, OnListFragmentInteractionListener {
 
     static final int REQUEST_CODE_LOGIN_LOGOUT = 0;
 
@@ -131,7 +136,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_login  || id == R.id.nav_logout) {
             startActivityForResult(new Intent(this, UserManagement.class), REQUEST_CODE_LOGIN_LOGOUT);
         } else if (id == R.id.nav_messages) {
-            ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
+            ft.replace(R.id.content_frame, new MessageFragment(), "messages");
             ft.addToBackStack("messages");
         } else if (id == R.id.nav_warn_driver) {
             ft.replace(R.id.content_frame, new WarnDriverFragment(), "warnDriver");
@@ -155,5 +160,18 @@ public class MainActivity extends AppCompatActivity
             ft.replace(R.id.content_frame, new MainFragment(), "home");
             ft.addToBackStack("home").commit();
         }
+    }
+
+
+    @Override
+    public void onListFragmentInteraction(ParseObject message) {
+        FragmentTransaction ft = getFragmentManager().beginTransaction();
+        Bundle args = new Bundle();
+
+        args.putString("messageID", message.getObjectId());
+        MessageDetailFragment mdf = new MessageDetailFragment();
+        mdf.setArguments(args);
+        ft.replace(R.id.content_frame, mdf, "messageDetail");
+        ft.addToBackStack("messageDetail").commit();
     }
 }

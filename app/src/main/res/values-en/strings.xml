@@ -67,4 +67,6 @@
     <string name="title_activity_signup">Schleppo SignUp</string>
     <string name="msg_send_warning">Warning was send!</string>
     <string name="driver_not_available">License Number ist not registered!</string>
+    <string name="no_messages">You have currently no messages</string>
+    <string name="prohibition_of_parking">Probition of parking</string>
 </resources>

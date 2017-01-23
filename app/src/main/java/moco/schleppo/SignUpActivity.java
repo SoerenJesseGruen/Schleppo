@@ -15,7 +15,7 @@ import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
 /**
- * Created by soere on 05.12.2016.
+ * Created by soeren on 05.12.2016.
  */
 
 public class SignUpActivity  extends AppCompatActivity {

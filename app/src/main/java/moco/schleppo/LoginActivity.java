@@ -21,6 +21,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     Button btnLogin;
     Button btnSignUp;
+    Button btnChangePassword;
 
     static final int REQUEST_CODE = 0;
 
@@ -36,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnLogin = (Button) findViewById(R.id.buttonLogin);
         btnSignUp = (Button) findViewById(R.id.buttonSignUp_Login);
+        btnChangePassword = (Button) findViewById(R.id.btnPasswort);
 
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +57,16 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         }
                     }
                 });
+            }
+        });
+        btnChangePassword.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    UserManagement.parseUser.requestPasswordReset(UserManagement.parseUser.getEmail());
+                } catch (ParseException e) {
+                    Log.d("ResetPassword", e.getMessage());
+                }
             }
         });
         btnSignUp.setOnClickListener(this);

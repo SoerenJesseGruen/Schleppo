@@ -14,15 +14,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 
 import com.parse.ParseException;
 import com.parse.ParseUser;
-import com.parse.RequestPasswordResetCallback;
-import com.parse.ui.ParseLoginBuilder;
-
-import moco.schleppo.LoginActivity;
-import moco.schleppo.MainActivity;
 import moco.schleppo.R;
 
 
@@ -82,20 +76,9 @@ public class ProfilFragment extends Fragment {
         tfKennzeichen.addTextChangedListener(textWatcher);
 
 
-        Button btnChangePassword = (Button) rootView.findViewById(R.id.btnPasswort);
+
         btnEdit = (Button) rootView.findViewById(R.id.btnSpeichern);
         btnEdit.setEnabled(false);
-
-        btnChangePassword.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                try {
-                    UserManagement.parseUser.requestPasswordReset(UserManagement.parseUser.getEmail());
-                } catch (ParseException e) {
-                    Log.d("ResetPassword", e.getMessage());
-                }
-            }
-        });
     }
 
     TextWatcher textWatcher = new TextWatcher() {

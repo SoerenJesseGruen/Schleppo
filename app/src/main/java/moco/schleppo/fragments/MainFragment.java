@@ -7,10 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+
 import moco.schleppo.R;
 
 /**
- * Created by soere on 23.11.2016.
+ * Created by soeren on 23.11.2016.
  */
 
 public class MainFragment extends Fragment {
@@ -48,7 +49,7 @@ public class MainFragment extends Fragment {
         btnMessages.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 FragmentTransaction ft = getFragmentManager().beginTransaction();
-                ft.replace(R.id.content_frame, new MessagesFragment(), "messages");
+                ft.replace(R.id.content_frame, new MessageFragment(), "messages");
                 ft.addToBackStack("messages");
                 ft.commit();
             }
