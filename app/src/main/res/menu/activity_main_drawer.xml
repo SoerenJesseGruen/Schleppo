@@ -4,36 +4,36 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_home_tab"
             android:title="@string/menu_home" />
         <item
             android:id="@+id/nav_profile"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_user_tab"
             android:title="@string/menu_profil" />
         <item
             android:id="@+id/nav_map"
-            android:icon="@android:drawable/ic_dialog_map"
+            android:icon="@drawable/ic_map_tab"
             android:title="@string/menu_map" />
         <item
             android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_answer_tab"
             android:title="@string/menu_messages" />
         <item
             android:id="@+id/nav_warn_driver"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_message_tab"
             android:title="@string/menu_warnDriver" />
         <item
             android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_setting_tab"
             android:title="@string/menu_setting" />
         <item
             android:id="@+id/nav_login"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_login_tab"
             android:title="@string/menu_login"
             android:visible="true" />
         <item
             android:id="@+id/nav_logout"
-            android:icon="@drawable/ic_menu_manage"
+            android:icon="@drawable/ic_login_tab"
             android:title="@string/menu_logout"
             android:visible="false" />
     </group>
