@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.LogOutCallback;
@@ -47,21 +48,12 @@ public class UserManagement extends Activity {
 
         if(requestCode == LOGIN_REQUEST) {
             checkUser();
-            //parseUser.put("authData", null);
-            //parseUser.saveInBackground();
             finish();
         }
     }
 
     private void doLogin() {
-        try {
-            ParseUser.getCurrentUser().delete();
-        } catch (Exception e) {
-            Log.d("AnonymousUser", "Failed to delete AnonymousUser");
-            Log.d("AnonymousUser", e.getMessage());
-        }
-        parseUser = null;
-        Intent loginIntent = new Intent(this, LoginActivity.class);
+       Intent loginIntent = new Intent(this, LoginActivity.class);
         startActivityForResult(loginIntent, LOGIN_REQUEST);
     }
 
@@ -86,6 +78,9 @@ public class UserManagement extends Activity {
 
     public static void checkUser () {
         parseUser = ParseUser.getCurrentUser();
+
+        // for resetting User and Session Token because of Invalid Sessio Token Exception
+        //resetUser();
 
         if(parseUser==null) {
             isAnonymousUser = true;
@@ -128,5 +123,16 @@ public class UserManagement extends Activity {
         View headerView = MainActivity.navigationView.getHeaderView(0);
         ((TextView) headerView.findViewById(R.id.userName)).setText(getString(R.string.standard_userName_header));
         ((TextView) headerView.findViewById(R.id.userLicenseNumber)).setText(R.string.standard_licenseNumber_header);
+    }
+
+    // Only for testing and debugging
+    private static void resetUser () {
+        try {
+            ParseUser.logOut();
+            ParseUser.getCurrentUser().delete();
+            parseUser = null;
+        } catch (Exception e) {
+            Log.e("CheckUser", e.getMessage());
+        }
     }
 }

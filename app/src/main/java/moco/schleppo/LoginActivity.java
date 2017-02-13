@@ -1,20 +1,26 @@
 package moco.schleppo;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import com.parse.LogInCallback;
 import com.parse.ParseException;
+import com.parse.ParseObject;
 import com.parse.ParseUser;
+import com.parse.RequestPasswordResetCallback;
 
+import moco.schleppo.fragments.MapsFragment;
 import moco.schleppo.fragments.UserManagement;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -62,14 +68,51 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         btnChangePassword.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    UserManagement.parseUser.requestPasswordReset(UserManagement.parseUser.getEmail());
-                } catch (ParseException e) {
-                    Log.d("ResetPassword", e.getMessage());
-                }
+            showPasswordResetDialog();
             }
         });
         btnSignUp.setOnClickListener(this);
+    }
+
+    private void showPasswordResetDialog() {
+        final Dialog passwordResetDialog = new Dialog(this);
+        passwordResetDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        passwordResetDialog.setContentView(R.layout.reset_password_dialog);
+        passwordResetDialog.setCancelable(true);
+
+        passwordResetDialog.findViewById(R.id.reset_password_cancel_btn)
+                .setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        passwordResetDialog.cancel();
+                    }
+                });
+
+        passwordResetDialog.findViewById(R.id.reset_password_btn)
+            .setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                EditText emailInput = (EditText)passwordResetDialog.findViewById(R.id.email_input_reset_password);
+                String userEmail = emailInput.getText().toString().trim().toLowerCase();
+
+                if(userEmail!=null && userEmail!="") {
+                    ParseUser.requestPasswordResetInBackground(userEmail, new RequestPasswordResetCallback() {
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                Toast.makeText(getApplicationContext(), getString(R.string.passwordreset_successfull), Toast.LENGTH_SHORT);
+                            } else {
+                                Log.d("ResetPassword", e.getMessage());
+                                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT);
+                            }
+                        }
+                    });
+                    passwordResetDialog.cancel();
+                } else {
+                    Toast.makeText(getApplicationContext(), getString(R.string.no_mail_input), Toast.LENGTH_SHORT);
+                }
+                }
+            });
+        passwordResetDialog.show();
     }
 
     private void showExceptionToast(Exception e) {

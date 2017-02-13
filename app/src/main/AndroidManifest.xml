@@ -24,13 +24,11 @@
     IMPORTANT: Change "com.parse.starter.permission.C2D_MESSAGE" in the lines below
     to match your app's package name + ".permission.C2D_MESSAGE".
     -->
-    <permission android:protectionLevel="signature"
-        android:name="moco.schleppo.permission.C2D_MESSAGE" />
+    <permission
+        android:name="moco.schleppo.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="moco.schleppo.permission.C2D_MESSAGE" />
-
-
-
-
 
     <application
         android:allowBackup="true"
@@ -41,8 +39,8 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -66,50 +64,49 @@
         <activity
             android:name=".LoginActivity"
             android:label="@string/menu_login"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SignUpActivity"
             android:label="@string/title_activity_signup"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".fragments.UserManagement"
             android:label="UserManagement"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
+
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDlUGRCxtP-sELa33b9AMLtEaVt6l5GFAw"/>
+            android:value="AIzaSyDlUGRCxtP-sELa33b9AMLtEaVt6l5GFAw" />
 
         <service android:name=".FCM_Messaging_Service">
             <intent-filter>
-
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
-
         </service>
-
         <service android:name=".FCM_Instance_ID_Service">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
-
             </intent-filter>
-
         </service>
-
-
+        <service
+            android:name=".DeleteWarningIntentService"
+            android:exported="false">
+        </service>
         <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver"
+
+        <receiver
+            android:name="com.parse.ParsePushBroadcastReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.parse.push.intent.RECEIVE" />
@@ -117,24 +114,22 @@
                 <action android:name="com.parse.push.intent.OPEN" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
+        <receiver
+            android:name="com.parse.GcmBroadcastReceiver"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 
-                <!--
-                IMPORTANT: Change "com.parse.starter" to match your app's package name.
-                -->
+                <!--                 IMPORTANT: Change "com.parse.starter" to match your app's package name. -->
                 <category android:name="moco.schleppo" />
             </intent-filter>
         </receiver>
 
-        <!--
-        IMPORTANT: Change "YOUR_SENDER_ID" to your GCM Sender Id.
-        -->
-        <meta-data android:name="com.parse.push.gcm_sender_id"
-            android:value="id:260954153531" />;
+        <!--         IMPORTANT: Change "YOUR_SENDER_ID" to your GCM Sender Id. -->
+        <meta-data
+            android:name="com.parse.push.gcm_sender_id"
+            android:value="id:260954153531" />
 
 
     </application>

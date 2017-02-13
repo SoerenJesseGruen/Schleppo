@@ -69,4 +69,9 @@
     <string name="driver_not_available">Kennzeichen ist nicht registriert!</string>
     <string name="no_messages">Du hast momentan keine Nachrichten</string>
     <string name="prohibition_of_parking">Parkverbot</string>
+    <string name="no_mail_input">Du musst deine Email eingeben!</string>
+    <string name="passwordreset_successfull">Passwort zurücksetzen war erfolgreich</string>
+    <string name="invalid_email">Die E-Mail-Adresse ist fehlerhaft!</string>
+    <string name="empty_fields">Ein paar Felder sind noch leer!</string>
+    <string name="invalid_license">Das Kennzeichen ist fehlerhaft!</string>
 </resources>

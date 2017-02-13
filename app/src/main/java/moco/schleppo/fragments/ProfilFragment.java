@@ -75,8 +75,6 @@ public class ProfilFragment extends Fragment {
         tfEmail.addTextChangedListener(textWatcher);
         tfKennzeichen.addTextChangedListener(textWatcher);
 
-
-
         btnEdit = (Button) rootView.findViewById(R.id.btnSpeichern);
         btnEdit.setEnabled(false);
     }

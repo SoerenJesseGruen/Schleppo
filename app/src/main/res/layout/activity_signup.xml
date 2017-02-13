@@ -75,7 +75,7 @@
         android:layout_below="@+id/regMailLabelView"
         android:layout_alignRight="@+id/regLicencePlateInputText"
         android:layout_alignEnd="@+id/regLicencePlateInputText"
-        android:id="@+id/editText5" />
+        android:id="@+id/regMailInputText" />
 
     <TextView
         android:text="@string/standard_username"
@@ -90,7 +90,7 @@
         android:text="@string/standard_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/editText5"
+        android:layout_below="@+id/regMailInputText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/regPassword1LabelView" />
@@ -102,19 +102,8 @@
         android:ems="10"
         android:id="@+id/regPassword1InputText"
         android:layout_below="@+id/regPassword1LabelView"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/regMailInputText"
-        android:layout_alignBaseline="@+id/editText5"
-        android:layout_alignBottom="@+id/editText5"
-        android:layout_alignLeft="@+id/editText5"
-        android:layout_alignStart="@+id/editText5" />
+        android:layout_alignLeft="@+id/regMailInputText"
+        android:layout_alignStart="@+id/regMailInputText" />
 
     <EditText
         android:layout_width="wrap_content"

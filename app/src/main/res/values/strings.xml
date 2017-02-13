@@ -75,5 +75,10 @@
     <string name="driver_not_available">License Number ist not registered!</string>
     <string name="no_messages">You have currently no messages</string>
     <string name="prohibition_of_parking">Probition of parking</string>
+    <string name="no_mail_input">You have to input your Email!</string>
+    <string name="passwordreset_successfull">Password reset was successfully send</string>
+    <string name="invalid_email">Your E-Mail is invalid!</string>
+    <string name="empty_fields">There are empty fields!</string>
+    <string name="invalid_license">Your license number is invalid!</string>
 
 </resources>

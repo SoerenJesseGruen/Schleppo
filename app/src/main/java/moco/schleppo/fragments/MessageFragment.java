@@ -1,5 +1,6 @@
 package moco.schleppo.fragments;
 
+import android.app.FragmentManager;
 import android.content.Context;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -55,17 +56,22 @@ public class MessageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_message_list, container, false);
 
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            } else {
-                recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+        if(!UserManagement.isAnonymousUser) {
+            // Set the adapter
+            if (view instanceof RecyclerView) {
+                Context context = view.getContext();
+                RecyclerView recyclerView = (RecyclerView) view;
+                if (mColumnCount <= 1) {
+                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
+                } else {
+                    recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
+                }
+                getMessagesFromParse();
+                recyclerView.setAdapter(new MessageRecyclerViewAdapter(messageList, mListener));
             }
-            getMessagesFromParse();
-            recyclerView.setAdapter(new MessageRecyclerViewAdapter(messageList, mListener));
+        } else {
+            Toast.makeText(getActivity(),getString(R.string.no_messages), Toast.LENGTH_LONG).show();
+            getFragmentManager().popBackStack();
         }
         return view;
     }
