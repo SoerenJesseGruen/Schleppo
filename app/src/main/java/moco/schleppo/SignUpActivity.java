@@ -84,8 +84,8 @@ public class SignUpActivity  extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            UserManagement.parseUser.put("authData", null);
-                            UserManagement.parseUser.saveInBackground(new SaveCallback() {
+                            UserManagement.parseUser.put("isAnonymous", false);
+                            UserManagement.parseUser.saveInBackground( new SaveCallback() {
                                 @Override
                                 public void done(ParseException e) {
                                     UserManagement.checkUser();

@@ -50,13 +50,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             public void onClick(View view) {
                 EditText userName = (EditText) findViewById(R.id.editTextUsername);
                 EditText userPassword = (EditText) findViewById(R.id.editTextPassword);
+
+                try {
+                    UserManagement.parseUser.delete();
+                    UserManagement.parseUser = null;
+                } catch (Exception ex) {
+                    Log.d("DeleteUser", ex.getMessage());
+                }
+
                 ParseUser.logInInBackground(userName.getText().toString(), userPassword.getText().toString(), new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException e) {
                         if(user==null || e!=null) {
+                            UserManagement.doAnonymousLogin();
                             showExceptionToast(e);
                         } else {
                             setResult(Activity.RESULT_OK);
+
                             UserManagement.isAnonymousUser = false;
                             UserManagement.parseUser = user;
                             finish();

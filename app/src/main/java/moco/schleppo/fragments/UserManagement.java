@@ -79,14 +79,14 @@ public class UserManagement extends Activity {
     public static void checkUser () {
         parseUser = ParseUser.getCurrentUser();
 
-        // for resetting User and Session Token because of Invalid Sessio Token Exception
+        // for resetting User and Session Token because of Invalid Session Token Exception
         //resetUser();
 
         if(parseUser==null) {
-            isAnonymousUser = true;
+            // Greift nur beim ersten Start
             doAnonymousLogin();
         } else {
-            isAnonymousUser = (parseUser.get("authData")!=null? true: false);
+            isAnonymousUser = parseUser.getBoolean("isAnonymous");
         }
 
         if(!isAnonymousUser) {
@@ -100,7 +100,7 @@ public class UserManagement extends Activity {
         }
     }
 
-    private static void doAnonymousLogin() {
+    public static void doAnonymousLogin() {
         ParseAnonymousUtils.logIn(new LogInCallback() {
             @Override
             public void done(ParseUser user, ParseException e) {
@@ -110,6 +110,8 @@ public class UserManagement extends Activity {
                 } else {
                     Log.d("AnonymousUser", "Anonymous user logged in.");
                     parseUser = user;
+                    parseUser.put("isAnonymous", true);
+                    parseUser.saveInBackground();
                     isAnonymousUser = true;
                 }
             }
